@@ -103,4 +103,18 @@ describe("ObservationForm", function () {
             expect(observationForm.isOpen).toBe(false);
         });
     });
+
+    describe('clone', function() {
+       it('should clone the given observation form with all the properties set', function() {
+           var observations = [];
+           var observationForm = new ObservationForm('uuid', dummyUser, 'formName', '1', observations,'formLabel');
+           var clonedForm = observationForm.clone();
+           expect(clonedForm.formUuid).toBe('uuid');
+           expect(clonedForm.formName).toBe('formName');
+           expect(clonedForm.formVersion).toBe('1');
+           expect(clonedForm.observations).toEqual(observations);
+           expect(clonedForm.label).toBe('formLabel');
+           expect(clonedForm.isOpen).toBe(true);
+       });
+    });
 });

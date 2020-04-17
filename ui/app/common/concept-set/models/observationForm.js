@@ -43,7 +43,8 @@ Bahmni.ObservationForm = function (formUuid, user, formName, formVersion, observ
 
     // parameters added to show in observation page :: START
     self.clone = function () {
-        var clonedObservationFormSection = new Bahmni.ObservationForm(self.formUuid, user, self.formName, self.formVersion, []);
+        var clonedObservationFormSection = new Bahmni.ObservationForm(self.formUuid, user, self.formName,
+          self.formVersion, [], self.label);
         clonedObservationFormSection.isOpen = true;
         return clonedObservationFormSection;
     };
